@@ -15,7 +15,6 @@ except ImportError:
 from datetime import datetime
 from threading import Timer
 TOKEN = environ['TOKEN']
-print(TOKEN)
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 
 def get_url(url):
