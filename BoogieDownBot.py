@@ -66,7 +66,7 @@ def handle_updates(updates):
             chat = update["message"]["chat"]["id"]
         if text == "/start":
             intro_message = textwrap.dedent("""
-            Welcome to MusicBot! This chatbot will give you the top 5 tracks on the www.clubdancemixes.com website! Hit /tracks to get the tracks!
+            Welcome to BoogieDownBot! This chatbot will give you the top 5 tracks on the www.clubdancemixes.com website! Hit /tracks to get the tracks!
             """)
             send_message(intro_message, chat)
         elif text == "/tracks":
