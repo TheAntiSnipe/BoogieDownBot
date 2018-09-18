@@ -14,14 +14,8 @@ except ImportError:
 
 from datetime import datetime
 from threading import Timer
-try:
-    CONFIG = configparser.ConfigParser()
-    CONFIG.read("sample.ini")
-    TOKEN = CONFIG.get('CREDS', 'API_TOKEN')
-    print(TOKEN)
-except NoSectionError:
-    TOKEN = environ['TOKEN']
-    PRINT(TOKEN)
+TOKEN = environ['TOKEN']
+PRINT(TOKEN)
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 
 def get_url(url):
