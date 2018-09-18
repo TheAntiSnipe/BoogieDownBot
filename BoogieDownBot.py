@@ -18,15 +18,17 @@ try:
     CONFIG = configparser.ConfigParser()
     CONFIG.read("sample.ini")
     TOKEN = CONFIG.get('CREDS', 'API_TOKEN')
+    print(TOKEN)
 except NoSectionError:
     TOKEN = environ['TOKEN']
+    PRINT(TOKEN)
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
-
 
 def get_url(url):
     response = requests.get(url)
     content = response.content.decode("utf8")
     return content
+
 
 
 def get_json_from_url(url):
