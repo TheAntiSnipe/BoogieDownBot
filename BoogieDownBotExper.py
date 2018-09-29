@@ -12,7 +12,6 @@ updater = Updater(TOKEN)
 
 APP_URL = os.environ['APP_URL']
 PORT = int(os.environ.get('PORT', '8443'))
-CHANNEL_NAME = os.environ['CHANNEL_NAME']
 HOUR = int(os.environ['HOUR'])
 MIN = int(os.environ['MIN'])
 # Enable logging
