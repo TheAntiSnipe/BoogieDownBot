@@ -5,7 +5,7 @@ import textwrap
 import random
 import datetime
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from webscrap import train_delay
+import webscrap
 
 TOKEN = os.environ['TOKEN']
 updater = Updater(TOKEN)
