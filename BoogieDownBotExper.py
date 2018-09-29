@@ -34,7 +34,7 @@ def unknown(bot, update):
 
 def main():
     """Start the bot and use webhook to detect and respond to new messages."""
-
+    dispatcher = updater.dispatcher
     # Handlers
     start_handler = CommandHandler('start', start)
     tracks_handler = CommandHandler('tracks', tracks)
