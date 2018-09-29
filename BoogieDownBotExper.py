@@ -12,8 +12,6 @@ updater = Updater(TOKEN)
 
 APP_URL = os.environ['APP_URL']
 PORT = int(os.environ.get('PORT', '8443'))
-HOUR = int(os.environ['HOUR'])
-MIN = int(os.environ['MIN'])
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
@@ -36,10 +34,6 @@ def unknown(bot, update):
 
 def main():
     """Start the bot and use webhook to detect and respond to new messages."""
-    dispatcher = updater.dispatcher
-    j = updater.job_queue
-    time = datetime.time(HOUR, MIN)
-    j.run_daily(update_channel, time)
 
     # Handlers
     start_handler = CommandHandler('start', start)
