@@ -1,1 +1,1 @@
-worker: python BoogieDownBotExper.py
+web: python BoogieDownBotExper.py
