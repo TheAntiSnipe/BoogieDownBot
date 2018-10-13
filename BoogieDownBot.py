@@ -33,8 +33,8 @@ def tracks(bot, update):
 
 def download1(bot,update):
 	link=download.download_track(1)
-	bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-    bot.sendMessage(chat_id=update.message.chat_id, text=link, parse_mode='markdown')
+	bot.send_chat_action(chat_id=update.message.chat_id, action="typing")	
+	bot.sendMessage(chat_id=update.message.chat_id, text=link, parse_mode='markdown')
 
 def download2(bot,update):
 	link=download.download_track(2)
