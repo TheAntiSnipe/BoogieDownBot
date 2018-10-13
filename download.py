@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-def download_tracks(trackNo):
+def download_track(trackNo):
     baseURL = f'https://www.clubdancemixes.com/'
     r=requests.get(baseURL)
     soup = BeautifulSoup(r.text, 'html.parser')
@@ -11,4 +11,4 @@ def download_tracks(trackNo):
     return songBaseLink
 
 if __name__ == '__main__':
-    print(download_tracks(1))
+    print(download_track(1))
