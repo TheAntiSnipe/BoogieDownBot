@@ -39,22 +39,22 @@ def download1(bot,update):
 def download2(bot,update):
 	link=download.download_track(2)
 	bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-    bot.sendMessage(chat_id=update.message.chat_id, text=link, parse_mode='markdown')
+    	bot.sendMessage(chat_id=update.message.chat_id, text=link, parse_mode='markdown')
 
 def download3(bot,update):
 	link=download.download_track(3)
 	bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-    bot.sendMessage(chat_id=update.message.chat_id, text=link, parse_mode='markdown')
+    	bot.sendMessage(chat_id=update.message.chat_id, text=link, parse_mode='markdown')
 
 def download4(bot,update):
 	link=download.download_track(4)
 	bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-    bot.sendMessage(chat_id=update.message.chat_id, text=link, parse_mode='markdown')
+    	bot.sendMessage(chat_id=update.message.chat_id, text=link, parse_mode='markdown')
 
 def download5(bot,update):
 	link=download.download_track(5)
 	bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-    bot.sendMessage(chat_id=update.message.chat_id, text=link, parse_mode='markdown')
+    	bot.sendMessage(chat_id=update.message.chat_id, text=link, parse_mode='markdown')
 
 def unknown(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="I don't know how to answer to that.")
