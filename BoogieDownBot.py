@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 def start(bot, update):
     intro_message = textwrap.dedent("""
     Welcome to BoogieDownBot! This chatbot will give you the top 5 tracks on the www.clubdancemixes.com website!
-    Hit /tracks to get the tracks, and hit /download1 - /download5 to download the track of your choice!
+    Hit /tracks to get the tracks, and select the tracks that you wish to download from them!
     
     Enjoy your music!
     """)
