@@ -7,6 +7,7 @@ import datetime
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import webscrap
 import download
+import thumbnail_scrape
 
 TOKEN = os.environ['TOKEN']
 updater = Updater(TOKEN)
@@ -26,35 +27,35 @@ def start(bot, update):
     """)
     bot.sendMessage(chat_id=update.message.chat_id, text=intro_message, parse_mode='markdown')
 
-def tracks(bot, update):
-    tracksFound = webscrap.song_scrape()
-    bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-    bot.sendMessage(chat_id=update.message.chat_id, text=tracksFound, parse_mode='markdown')
-
 def download1(bot,update):
-    link=download.download_track(1)
+    thumbnail = thumbnail_scrape.getThumbnail(0)
+    link=download.download_track(0)
     bot.send_chat_action(chat_id=update.message.chat_id, action="typing")    
-    bot.sendAudio(chat_id=update.message.chat_id,audio=link)
+    bot.sendAudio(chat_id=update.message.chat_id,audio=link, thumb=thumbnail)
 
 def download2(bot,update):
-    link=download.download_track(2)
-    bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-    bot.sendAudio(chat_id=update.message.chat_id,audio=link)
+    thumbnail = thumbnail_scrape.getThumbnail(1)
+    link=download.download_track(1)
+    bot.send_chat_action(chat_id=1update.message.chat_id, action="typing")
+    bot.sendAudio(chat_id=update.message.chat_id,audio=link, thumb=thumbnail)
 
 def download3(bot,update):
-    link=download.download_track(3)
+    thumbnail = thumbnail_scrape.getThumbnail(2)
+    link=download.download_track(2)
     bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-    bot.sendAudio(chat_id=update.message.chat_id,audio=link)
+    bot.sendAudio(chat_id=update.message.chat_id,audio=link, thumb=thumbnail)
 
 def download4(bot,update):
-    link=download.download_track(4)
+    thumbnail = thumbnail_scrape.getThumbnail(3)
+    link=download.download_track(3)
     bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-    bot.sendAudio(chat_id=update.message.chat_id,audio=link)
+    bot.sendAudio(chat_id=update.message.chat_id,audio=link, thumb=thumbnail)
 
 def download5(bot,update):
-    link=download.download_track(5)
+    thumbnail = thumbnail_scrape.getThumbnail(4)
+    link=download.download_track(4)
     bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-    bot.sendAudio(chat_id=update.message.chat_id,audio=link)
+    bot.sendAudio(chat_id=update.message.chat_id,audio=link, thumb=thumbnail)
 
 def unknown(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="I don't know how to answer to that.")
