@@ -22,9 +22,9 @@ logger = logging.getLogger(__name__)
 def start(bot, update):
     intro_message = textwrap.dedent("""
     Welcome to BoogieDownBot! This chatbot will give you the top 5 tracks on the www.clubdancemixes.com website!
-    Hit /tracks to get the tracks, and select the tracks that you wish to download from them!
+    Hit /tracks to get the tracks, and hit /download1 - /download5 to download the track of your choice!
     
-    Enjoy your music!
+    Unfortunately, due to the site rules, you can only get 2 downloads a day :/ But enjoy your music!
     """)
     bot.sendMessage(chat_id=update.message.chat_id, text=intro_message, parse_mode='markdown')
 
@@ -36,27 +36,27 @@ def tracks(bot, update):
 def download1(bot,update):
     link=download.download_track(1)
     bot.send_chat_action(chat_id=update.message.chat_id, action="typing")    
-    bot.sendMessage(chat_id=update.message.chat_id, text=link, parse_mode='markdown')
+    bot.sendAudio(chat_id=update.message.chat_id,audio=link)
 
 def download2(bot,update):
     link=download.download_track(2)
     bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-    bot.sendMessage(chat_id=update.message.chat_id, text=link, parse_mode='markdown')
+    bot.sendAudio(chat_id=update.message.chat_id,audio=link)
 
 def download3(bot,update):
     link=download.download_track(3)
     bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-    bot.sendMessage(chat_id=update.message.chat_id, text=link, parse_mode='markdown')
+    bot.sendAudio(chat_id=update.message.chat_id,audio=link)
 
 def download4(bot,update):
     link=download.download_track(4)
     bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-    bot.sendMessage(chat_id=update.message.chat_id, text=link, parse_mode='markdown')
+    bot.sendAudio(chat_id=update.message.chat_id,audio=link)
 
 def download5(bot,update):
     link=download.download_track(5)
     bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-    bot.sendMessage(chat_id=update.message.chat_id, text=link, parse_mode='markdown')
+    bot.sendAudio(chat_id=update.message.chat_id,audio=link)
 
 def unknown(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="I don't know how to answer to that.")
