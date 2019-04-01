@@ -36,7 +36,7 @@ def download1(bot,update):
 def download2(bot,update):
     thumbnail = thumbnail_scrape.getThumbnail(1)
     link=download.download_track(1)
-    bot.send_chat_action(chat_id=1update.message.chat_id, action="typing")
+    bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
     bot.sendAudio(chat_id=update.message.chat_id,audio=link, thumb=thumbnail)
 
 def download3(bot,update):
