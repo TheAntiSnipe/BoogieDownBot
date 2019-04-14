@@ -97,6 +97,7 @@ def main():
 	dispatcher.add_handler(download3_handler)
 	dispatcher.add_handler(download4_handler)
 	dispatcher.add_handler(download5_handler)
+	dispatcher.add_handler(search_handler)
 	dispatcher.add_handler(unknown_message)
 
 	updater.start_webhook(listen='0.0.0.0',
