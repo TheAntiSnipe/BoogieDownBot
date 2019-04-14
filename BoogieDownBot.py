@@ -69,6 +69,7 @@ def search(bot,update):
 	updates = bot.get_updates()
 	url = 'https://www.clubdancemixes.com/?s={updates}'
 	tracksFound = webscrap.song_scrape(url) 
+	bot.sendMessage(chat_id=update.message.chat_id, text=tracksFound, parse_mode='markdown')   
 
 
 def unknown(bot, update):
@@ -85,6 +86,7 @@ def main():
 	download3_handler=CommandHandler('download3',download3)
 	download4_handler=CommandHandler('download4',download4)
 	download5_handler=CommandHandler('download5',download5)
+	search_handler=CommandHandler('search',search)
 	unknown_message = MessageHandler(Filters.text | Filters.command, unknown)
 
 	# Dispatchers
