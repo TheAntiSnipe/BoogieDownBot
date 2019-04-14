@@ -65,6 +65,7 @@ def download5(bot,update):
 def search(bot,update):
 	bot.send_chat_action(chat_id = update.message.chat_id, action = 'typing')
     message_text = "Enter the search text."
+    bot.sendMessage(chat_id=update.message.chat_id, text=message_text, parse_mode='markdown')
     updates = bot.get_updates()
     url = 'https://www.clubdancemixes.com/?s={updates}'
     tracksFound = webscrap.song_scrape(url) 
