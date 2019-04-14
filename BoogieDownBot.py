@@ -16,7 +16,7 @@ APP_URL = os.environ['APP_URL']
 PORT = int(os.environ.get('PORT', '8443'))
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        level=logging.INFO)
+    level=logging.INFO)
 
 logger = logging.getLogger(__name__)
 
@@ -30,12 +30,12 @@ def start(bot, update):
 def tracks(bot, update):
     tracksFound = webscrap.song_scrape()
     bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-    bot.sendMessage(chat_id=update.message.chat_id, text=tracksFound, parse_mode='markdown')        
-        
+    bot.sendMessage(chat_id=update.message.chat_id, text=tracksFound, parse_mode='markdown')    
+    
 def download1(bot,update):
     thumbnail = thumbnail_scrape.getThumbnail(0)
     link=download.download_track(0)
-    bot.send_chat_action(chat_id=update.message.chat_id, action="typing")    
+    bot.send_chat_action(chat_id=update.message.chat_id, action="typing")   
     bot.sendAudio(chat_id=update.message.chat_id,audio=link, thumb=thumbnail)
 
 def download2(bot,update):
