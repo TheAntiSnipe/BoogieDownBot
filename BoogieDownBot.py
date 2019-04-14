@@ -4,7 +4,7 @@ import logging
 import textwrap
 import random
 import datetime
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler, ConversationHandler, Filters 
 import webscrap
 import download
 import thumbnail_scrape
@@ -22,8 +22,8 @@ logger = logging.getLogger(__name__)
 
 def start(bot, update):
     intro_message = textwrap.dedent("""
-    Welcome to BoogieDownBot! This chatbot will give you the top 5 tracks on the www.clubdancemixes.com website!
-    Hit /tracks to get the tracks, and use the download commands to download them!
+    Welcome to BoogieDownBot! This chatbot will give you the top 5 tracks on the www.clubdancemixes.com website.
+    Hit /tracks to get the tracks, and use the download commands to download them. Hit /search to find a track.
     """)
     bot.sendMessage(chat_id=update.message.chat_id, text=intro_message, parse_mode='markdown')
 
@@ -61,6 +61,14 @@ def download5(bot,update):
     link=download.download_track(4)
     bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
     bot.sendAudio(chat_id=update.message.chat_id,audio=link, thumb=thumbnail)
+
+def search(bot,update):
+	bot.send_chat_action(chat_id = update.message.chat_id, action = 'typing')
+    message_text = "Enter the search text."
+    updates = bot.get_updates()
+    url = 'https://www.clubdancemixes.com/?s={updates}'
+    tracksFound = webscrap.song_scrape(url) 
+
 
 def unknown(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="I don't know how to answer to that.")

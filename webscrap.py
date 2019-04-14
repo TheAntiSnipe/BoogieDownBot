@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-def song_scrape():
-    baseURL = f'https://www.clubdancemixes.com/'
+def song_scrape(baseURL = f'https://www.clubdancemixes.com/'):
     r=requests.get(baseURL)
     soup = BeautifulSoup(r.text, 'html.parser')
     songNames=""
