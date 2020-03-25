@@ -118,7 +118,7 @@ def main():
         updater.idle()
     else:
         APP_URL = os.environ['APP_URL']
-        PORT = os.getenv('PORT', default=8000)
+        PORT = int(os.getenv('PORT', default=8000))
         updater.start_webhook(listen='0.0.0.0',
             port=PORT,
             url_path=TOKEN)
