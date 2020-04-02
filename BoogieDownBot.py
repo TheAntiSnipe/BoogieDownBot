@@ -82,7 +82,7 @@ def cancel(bot, update):
 def main():
     """Start the bot and use webhook to detect and respond to new messages."""
     TOKEN = os.environ['TOKEN']
-    updater = Updater(TOKEN)
+    updater = Updater(TOKEN,use_context=True)
     dispatcher = updater.dispatcher
 
     # Enable logging
