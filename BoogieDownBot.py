@@ -62,7 +62,7 @@ def download5(bot,update):
 	bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
 	bot.sendAudio(chat_id=update.message.chat_id,audio=link, thumb=thumbnail)
 
-def search(bot,update):
+'''def search(bot,update):
 	bot.send_chat_action(chat_id = update.message.chat_id, action = 'typing')
 	message_text = textwrap.dedent("Enter the name of the song to be searched")
 	bot.sendMessage(chat_id=update.message.chat_id, text=message_text, parse_mode='markdown')
@@ -70,7 +70,18 @@ def search(bot,update):
 	url = 'https://www.clubdancemixes.com/?s={updates}'
 	tracksFound = webscrap.song_scrape(url) 
 	bot.sendMessage(chat_id=update.message.chat_id, text=tracksFound, parse_mode='markdown')   
-
+'''
+def search(bot,update):
+    bot.send_chat_action(chat_id = update.message.chat_id, action = 'typing')
+    received_text = update.message.text
+    query = "+".join(received_text.split()[1:])
+    url = f"https://www.clubdancemixes.com/?s={query}"
+    tracks_found = webscrap.song_scrape(url)
+    message_text = ""
+    for track in tracks_found:
+        message_text += f"[{track}]({tracks_found[track]})\n"
+    bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
+    bot.sendMessage(chat_id=update.message.chat_id, text=message_text, parse_mode='markdown')
 
 def unknown(bot, update):
 	bot.sendMessage(chat_id=update.message.chat_id, text="I don't know how to answer to that.")
