@@ -28,9 +28,12 @@ def start(bot, update):
 	bot.sendMessage(chat_id=update.message.chat_id, text=intro_message, parse_mode='markdown')
 
 def tracks(bot, update):
-	tracksFound = webscrap.song_scrape()
-	bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-	bot.sendMessage(chat_id=update.message.chat_id, text=tracksFound, parse_mode='markdown')    
+    tracks_found = webscrap.song_scrape()
+    message_text = ""
+    for track in tracks_found:
+        message_text += f"[{track}]({tracks_found[track]})\n"
+    bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
+    bot.sendMessage(chat_id=update.message.chat_id, text=message_text, parse_mode='markdown')  
 	
 def download1(bot,update):
 	thumbnail = thumbnail_scrape.getThumbnail(0)
