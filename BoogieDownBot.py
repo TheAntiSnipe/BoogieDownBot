@@ -9,11 +9,9 @@ import thumbnail_scrape  # custom module imports
 from telegram.ext import Updater, CommandHandler, MessageHandler, ConversationHandler, Filters
 from functools import partial
 
-# TOKEN = os.environ['TOKEN']
-TOKEN = '619330888:AAHFkJ9iuGe2SOQcEr05p00MHLtwUve758k'
-APP_URL = 'https://boogie-down-bot.herokuapp.com/'
+TOKEN = os.environ['TOKEN']
 updater = Updater(TOKEN)
-# APP_URL = os.environ['APP_URL']
+APP_URL = os.environ['APP_URL']
 PORT = int(os.environ.get('PORT', '8443'))
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
