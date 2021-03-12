@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 import os
 import logging
-import textwrap  # core module imports
+import textwrap  
+from functools import partial # core module imports
 import webscrap
 import download
 import thumbnail_scrape  # custom module imports
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, ConversationHandler, Filters
-from functools import partial
+
 
 TOKEN = os.environ['TOKEN']
 updater = Updater(TOKEN)
